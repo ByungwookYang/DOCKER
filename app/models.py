@@ -5,7 +5,7 @@ from typing import List, Tuple
 class RerankerModel:
     def __init__(self):
         # 한국어 성능 좋은 경량 모델
-        self.model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-2-v2')
+        self.model = CrossEncoder('/app/model')
     
     def rerank(self, query: str, documents: List[str], top_k: int = 5) -> List[Tuple[str, float]]:
         # 쿼리-문서 페어 생성

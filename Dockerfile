@@ -16,7 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ ./app/
 
 # 모델 미리 다운로드 (선택사항)
-RUN python -c "from sentence_transformers import CrossEncoder; CrossEncoder('cross-encoder/ms-marco-MiniLM-L-2-v2')"
+# 모델을 명시적 경로에 저장
+RUN python -c "from sentence_transformers import CrossEncoder; model = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-2-v2'); model.save('/app/model')"
 
 EXPOSE 8000
 
