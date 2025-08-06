@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  reranker:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./models:/app/models  # 모델 캐시용
+    restart: unless-stopped
